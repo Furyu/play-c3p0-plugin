@@ -58,10 +58,29 @@ Supported Properties.
 * acquireRetryAttempts
 * acquireRetryDelay
 * maxIdleTime
+* maxConnectionAge
 * idleConnectionTestPeriod
 * preferredTestQuery
 * checkoutTimeout
 * jndiName
+
+### Examples:
+
+```
+db.default.user=user
+db.default.password=pass
+db.default.url=xxx.yyy.zzz
+db.default.driver=com.mysql.jdbc.Driver
+db.default.maxPoolSize=200
+db.default.minPoolSize=20
+db.default.initialPoolSize=40
+db.default.acquireIncrement=5
+db.default.maxIdleTime=10m
+db.default.maxConnectionAge=1h
+db.default.idleConnectionTestPeriod=10m
+db.default.preferredTestQuery="select 1;"
+db.default.checkoutTimeout=3s
+```
 
 # License
 

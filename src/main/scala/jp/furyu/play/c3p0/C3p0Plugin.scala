@@ -158,7 +158,7 @@ private class C3p0Api(configuration: Configuration, classloader: ClassLoader) ex
     conf.getInt("acquireIncrement").foreach(datasource.setAcquireIncrement(_))
     conf.getInt("acquireRetryAttempts").foreach(datasource.setAcquireRetryAttempts(_))
     conf.getMilliseconds("acquireRetryDelay").foreach(v => datasource.setAcquireRetryDelay(v.toInt)) // ms
-    conf.getMilliseconds("maxIdleTime").foreach(v => datasource.setAcquireRetryDelay((v / 1000L).toInt)) // s
+    conf.getMilliseconds("maxIdleTime").foreach(v => datasource.setMaxIdleTime((v / 1000L).toInt)) // s
     conf.getMilliseconds("maxConnectionAge").foreach(v => datasource.setMaxConnectionAge((v / 1000L).toInt)) // s
     conf.getMilliseconds("idleConnectionTestPeriod").foreach(v => datasource.setIdleConnectionTestPeriod((v / 1000L).toInt)) // s
     conf.getString("preferredTestQuery").foreach(datasource.setPreferredTestQuery(_))
