@@ -8,10 +8,10 @@ See [C3p0 Site](http://www.mchange.com/projects/c3p0/).
 
 # Release Note
 
-<table>
-<tr><th>Version</th><th>Release Date</th><th>Description</th></tr>
-<tr><td>0.1</td><td>2013/07/02</td><td>First Release.</td></tr>
-</table>
+| Version | Release Date | Description |
+|:----------|:----------|:------------|
+| 0.1 | 2013/07/02 | First Release. |
+| 0.2 | 2013/12/19 | Fix maxIdleTime configuration. (#1) |
 
 # Setup
 
