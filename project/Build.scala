@@ -44,11 +44,11 @@ object ApplicationBuild extends Build {
     ),
     libraryDependencies <+= scalaVersion(v => {
       v match {
-        case "2.10.0" => "play" % "play-jdbc" % "[2.0,)" cross CrossVersion.binaryMapped {
+        case "2.9.1" | "2.9.2" => "play" %% "play" % "[2.0,)" % "provided"
+        case _ => "play" % "play-jdbc" % "[2.0,)" % "provided" cross CrossVersion.binaryMapped {
           case "2.10.0" => "2.10"
           case x => x
         }
-        case "2.9.1" | "2.9.2" => "play" %% "play" % "[2.0,)"
       }
     }),
     libraryDependencies ++= Seq(
