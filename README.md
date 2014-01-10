@@ -1,6 +1,6 @@
 # C3p0 Plugin for Play2 framework
 
-supported play version is ```2.0.x``` and ```2.1.x```.
+supported play version is ```2.0.x``` and ```2.1.x``` and ```2.2.x```.
 
 ## What is C3p0?
 
@@ -12,6 +12,7 @@ See [C3p0 Site](http://www.mchange.com/projects/c3p0/).
 |:----------|:----------|:------------|
 | 0.1 | 2013/07/02 | First Release. |
 | 0.2 | 2013/12/19 | Fix maxIdleTime configuration. (#1) |
+| 0.2.1 | 2014/01/10 | Supported play 2.2.x |
 
 # Setup
 

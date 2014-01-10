@@ -24,7 +24,7 @@ object ApplicationBuild extends Build {
 
   val appOrganization = "jp.furyu"
   val appName         = "play-c3p0-plugin"
-  val appVersion      = "0.3-SNAPSHOT"
+  val appVersion      = "0.2.1"
   val appScalaVersion = "2.10.0"
   val appScalaCrossVersions = Seq(appScalaVersion, "2.9.1")
 
