@@ -18,7 +18,7 @@ See [C3p0 Site](http://www.mchange.com/projects/c3p0/).
 
 ## 1. Install Plugin.
 
-Edit file `project/Build.scala`
+Edit file `project/Build.scala` or `build.sbt`
 
 ```
 libraryDependencies ++= Seq(
