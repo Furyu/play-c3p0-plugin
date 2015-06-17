@@ -17,21 +17,14 @@
  */
 import sbt._
 import Keys._
-import scalariform.formatter.preferences._
-import com.typesafe.sbt.SbtScalariform._
 
 object ApplicationBuild extends Build {
 
   val appOrganization = "jp.furyu"
   val appName         = "play-c3p0-plugin"
   val appVersion      = "0.3-SNAPSHOT"
-  val appScalaVersion = "2.10.0"
-  val appScalaCrossVersions = Seq(appScalaVersion, "2.9.1")
-
-  lazy val scalaRiformSettings = ScalariformKeys.preferences := FormattingPreferences()
-    .setPreference(IndentWithTabs, false)
-    .setPreference(DoubleIndentClassDeclaration, true)
-    .setPreference(PreserveDanglingCloseParenthesis, true)
+  val appScalaVersion = "2.11.1"
+  val appScalaCrossVersions = Seq(appScalaVersion, "2.10.4")
 
   val main = Project(appName, base = file(".")).settings(
     organization := appOrganization,
@@ -39,20 +32,11 @@ object ApplicationBuild extends Build {
     scalaVersion := appScalaVersion,
     crossScalaVersions := appScalaCrossVersions,
     resolvers ++= Seq(
-      "Maven Snapshot Repository" at "http://people.apache.org/maven-snapshot-repository/",
-      "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
+      Resolver.typesafeRepo("releases")
     ),
-    libraryDependencies <+= scalaVersion(v => {
-      v match {
-        case "2.9.1" | "2.9.2" => "play" %% "play" % "[2.0,)" % "provided"
-        case _ => "play" % "play-jdbc" % "[2.0,)" % "provided" cross CrossVersion.binaryMapped {
-          case "2.10.0" => "2.10"
-          case x => x
-        }
-      }
-    }),
     libraryDependencies ++= Seq(
-      "com.mchange" % "c3p0" % "0.9.5-pre3"
+      "com.typesafe.play" %% "play-jdbc" % "2.3.9",
+      "com.mchange" % "c3p0" % "0.9.5"
     ),
     publishMavenStyle := true,
     publishTo <<= version { (v: String) =>
@@ -86,6 +70,18 @@ object ApplicationBuild extends Build {
         </developer>
       </developers>
     )
-  ).settings(scalariformSettings: _*).settings(scalaRiformSettings)
+  ).settings(appScalariformSettings)
+
+  private lazy val appScalariformSettings = {
+    import com.typesafe.sbt.SbtScalariform
+    import scalariform.formatter.preferences._
+
+    SbtScalariform.scalariformSettings ++ Seq(
+      SbtScalariform.ScalariformKeys.preferences := FormattingPreferences()
+        .setPreference(IndentWithTabs, false)
+        .setPreference(DoubleIndentClassDeclaration, true)
+        .setPreference(PreserveDanglingCloseParenthesis, true)
+    )
+  }
 
 }
