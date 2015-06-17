@@ -13,6 +13,7 @@ See [C3p0 Site](http://www.mchange.com/projects/c3p0/).
 | 0.1 | 2013/07/02 | First Release. |
 | 0.2 | 2013/12/19 | Fix maxIdleTime configuration. (#1) |
 | 0.2.1 | 2014/01/10 | Supported play 2.2.x |
+| 0.3 | 2015/06/17 | CrossBuild Scala2.10/2.11 |
 
 # Setup
 
